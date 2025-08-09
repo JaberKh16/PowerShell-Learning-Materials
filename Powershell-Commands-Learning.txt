@@ -1,0 +1,6 @@
+Powershell Commands Learning Concepts
+=====================================
+
+# check powershell version
+   $psversiontable..psversion
+
