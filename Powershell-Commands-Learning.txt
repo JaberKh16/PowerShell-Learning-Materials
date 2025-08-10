@@ -4,3 +4,93 @@ Powershell Commands Learning Concepts
 # check powershell version
    $psversiontable..psversion
 
+# shell commands known as "cmdlets" follow structure like: [Verb-Noun]
+   Verb: represents action eg., Get, Set, Add, Remove
+   Noun: represents object to work with eg., Process, Service, Item, ChildItem
+
+   # to get all commands
+     > get-command
+
+   # to get all alias (command aliases)
+     > get-alias
+
+   # to get specific alias command
+     > get-alias cp      # filter the copy command
+
+   # to get all alias attach commands
+     > get-command *-alias
+
+
+   # to list files or directories
+     > ls .\newfolder   # list all under '\newfolder
+     > ls .\procesess.* # list all files named processes.ext (any ext because wild card entry *)
+     > ls .\proceses?.* # list file having proceses?.* files, here ? replace single character wild card entry lookup
+
+   # to clear terminal
+     > clear-host   
+     or,
+     > clear
+
+   # to get help
+     > get-help cp
+
+   # to get local user info
+     > get-LocalUser
+
+   # to create new alias
+     > new-alias np C:\Windows\System32\notepad.exe # notepad.exe now aliases as np
+
+   # to get the hard drives info 
+     > get-volume
+
+   # use of pipeline
+     > get-service | Where-Object {$_.status -eq "running"}   # to get running processes
+     > get-service | Where-Object {$_.status -eq "stopped"}   # to get the stopped process
+     > get-service | Where-Object {$_.status -eq "running"} | Select-Object id, displayname 
+     > get-service | where-object {$_.status -eq "running"} | convertto-html > process.htm
+     > get-servixe | where-object {$_.status -eq "running"} | out-file .\processes.txt
+
+
+   # get ip information
+     > get-netadapter
+
+   # get a copy
+     > cp  .\process.txt .\services.txt        # using aliases
+     > Copy-Item .\process.txt .\services.txt  # using full hand
+
+   # to compare files 
+     > compare-object (get-content .\process.txt) (get-content .\services.txt)
+   
+   # to take a snapshot/restore of the machine
+     > Checkpoint-Computer      # to take snapshot/restore point 
+
+   # to check if a file/programs/anything exists
+     > test-path .\services.txt   # to check something exists in the path
+
+   # to test a connection
+     > ping ip => ping 8.8.8.8   # ping any network which returns icmp packets pretty much comes up with somehting up or not
+     > test-connection ip  => test-connection 8.8.8.8   # to setup a tcp connection unlike- ping which throws up icmp packets
+
+   # to reset authentication
+     > Test-ComputerSecureChannel
+     > Test-ComputerSecureChannel -credential  DOMAIN\Administration -Repair
+
+   # to download something from web
+     > invoke-webrequest url    
+     > invoke-bittransfer url # similar to invoke-webrequest but with more functionality
+
+   # to get powershell script policy
+     > get-executionpolicy              # default 'Restricted'
+     > set-executionpolicy              # to change execution policy, can be set through this command but not recommended
+     > Set-AutheticodeSignature         # allows to sign your own script(ps1 script)
+     > Set-AithenticodeSignature scriptname.ps1 @(gci cert:\CurrentUser\My -codesigning[0] -includechain "all" -timestampserver 
+       "http://pathto.net/your/ca/timestamp.dll"
+
+   # to create self signed certificate
+     > new-selfsignedcertificate
+
+   # to get random number
+     > get-random
+
+
+
