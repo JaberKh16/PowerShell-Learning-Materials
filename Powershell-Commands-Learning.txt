@@ -92,5 +92,22 @@ Powershell Commands Learning Concepts
    # to get random number
      > get-random
 
+   # to create a file
+    > new-item -path "C:\NewFolder\Filename.txt" -ItemType File
+   
+   # to create directory
+    > new-item -path "c:\NewFolder" -ItemType Directory
+    > new-item -path "c:\Newfolder\AnotherFolder" -ItemType Directory
+
+   # to remove a file
+    > remove-item -path "c:\NewFolder" -Recurse -Force # without confirmaiton dialouge
+    > remove-item -path "c:\NewFolder" -Recurse -Force -Confirm # with a confirmation dialouge
+    
+   # to set a content in a file
+    > set-content -path "c:\NewFolder\Test.txt" -Value "Something"
+    > add-content -path "c"\NewFolder\Test.txt" -Value "Special" # with a append mode
+
+   
+
 
 
