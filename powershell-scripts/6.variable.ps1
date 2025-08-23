@@ -1,4 +1,4 @@
-# powershell variables can be written in 3 formats: 
+# powershell variables can be written in 3 formats:
 # camel-case => someVariable
 # pascal-case =>SomeVariable
 # snake-case => some_variable
@@ -6,7 +6,7 @@
 
 # Available Variable Types:
 # 1. String  => $var = '' or $var = ""
-# 2. Integer => $var = 2 
+# 2. Integer => $var = 2
 # 3. Boolean => $var = $true or $false
 
 # Available Properties and Methods On String
@@ -21,7 +21,22 @@ $message
 $number = 2
 $number
 
- 
+
+# Example-2: Boolean
+$flag = $true
+$flag
+
+
+# Available Properties and Methods on String
+# Example-1: Get The Value
+$message.Value
+
+
+# strong type variables
+[String]$message = 'Welcome to powershell'
+[Int]$number = 2
+[Boolean]$flag = $true
+
 # Example-3: Get The Length]
 $message.Length
 
