@@ -1,3 +1,7 @@
+# Description: This script automates the backup of MySQL, PostgreSQL, and SQL Server databases.
+# It detects the operating system (Linux or Windows) and uses appropriate commands to perform the backup
+# It logs the backup status and errors to a log file.
+# Usage: Call the function with parameters for database type, name, user, password, and
 function Backup-Database {
     param (
         [string]$DbType,        # mysql | postgres | mssql

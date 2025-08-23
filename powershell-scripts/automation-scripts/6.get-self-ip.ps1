@@ -1,3 +1,5 @@
+# Script to get the public IP address of the machine
+# This script works on both Windows and Linux platforms.
 function Get-MyIP {
     param (
         [string]$Service = "https://api.ipify.org?format=json"
