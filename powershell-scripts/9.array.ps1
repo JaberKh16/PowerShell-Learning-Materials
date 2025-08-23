@@ -3,6 +3,10 @@
 $numbers = 1, 2, 3, 4, 5
 $numbers
 
+# define array using @()
+$fruits = @("apple", "banana", "orange")
+$fruits
+
 # get type
 $numbers.GetType()
 
